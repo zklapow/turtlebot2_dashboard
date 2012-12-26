@@ -1,0 +1,20 @@
+<package>
+  <description brief="turtlebot2_dashboard">
+
+     turtlebot2_dashboard
+
+  </description>
+  <author>Ze'ev Klapow</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/turtlebot2_dashboard</url>
+  <depend package="rospy"/>
+  <depend package="rqt_robot_dashboard"/>
+
+  <export>
+    <rqt_gui plugin="${prefix}/plugin.xml" />
+  </export>
+
+</package>
+
+
