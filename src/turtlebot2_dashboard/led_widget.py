@@ -11,7 +11,7 @@ class LedWidget(MenuDashWidget):
 
         self._off_icon = ['bg-grey.svg', 'ic-breaker.svg']
         self._green_icon = ['bg-green.svg', 'ic-breaker.svg']
-        self._orange_icon = ['bg-red.svg', 'ic-breaker.svg']
+        self._orange_icon = ['bg-yellow.svg', 'ic-breaker.svg']
         self._red_icon = ['bg-red.svg', 'ic-breaker.svg']
 
         icons = [self._off_icon, self._green_icon, self._orange_icon, self._red_icon]
