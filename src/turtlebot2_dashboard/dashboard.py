@@ -4,11 +4,12 @@ import rospy
 import diagnostic_msgs
 
 from rqt_robot_dashboard.dashboard import Dashboard
-from rqt_robot_dashboard.widgets import MonitorDashWidget, ConsoleDashWidget, MenuDashWidget, BatteryDashWidget, IconToolButton, NavViewDashWidget
+from rqt_robot_dashboard.widgets import MonitorDashWidget, MenuDashWidget, BatteryDashWidget, IconToolButton, NavViewDashWidget
 from QtGui import QMessageBox, QAction
 from python_qt_binding.QtCore import QSize
 
 from .led_widget import LedWidget
+from .motor_widget import MotorWidget
 
 class TurtlebotDashboard(Dashboard):
     def setup(self, context):
@@ -22,7 +23,7 @@ class TurtlebotDashboard(Dashboard):
     def get_widgets(self):
         leds = [LedWidget('/mobile_base/commands/led1'), LedWidget('/mobile_base/commands/led2')]
 
-        return [leds]
+        return [leds, [MotorWidget('/mobile_base/commands/motor_power')]]
 
     def dashboard_callback(self, msg):
         self._dashboard_message = msg
