@@ -10,10 +10,10 @@ class LedWidget(MenuDashWidget):
     def __init__(self, topic):
         self._pub = rospy.Publisher(topic, Led) 
 
-        self._off_icon = ['bg-grey.svg', 'ic-breaker.svg']
-        self._green_icon = ['bg-green.svg', 'ic-breaker.svg']
-        self._orange_icon = ['bg-yellow.svg', 'ic-breaker.svg']
-        self._red_icon = ['bg-red.svg', 'ic-breaker.svg']
+        self._off_icon = ['bg-grey.svg', 'ic-led.svg']
+        self._green_icon = ['bg-green.svg', 'ic-led.svg']
+        self._orange_icon = ['bg-orange.svg', 'ic-led.svg']
+        self._red_icon = ['bg-red.svg', 'ic-led.svg']
 
         icons = [self._off_icon, self._green_icon, self._orange_icon, self._red_icon]
         super(LedWidget, self).__init__(topic, icons=icons)
