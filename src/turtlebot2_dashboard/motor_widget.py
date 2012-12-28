@@ -12,20 +12,21 @@ class MotorWidget(IconToolButton):
 
         self._off_icon = ['bg-grey.svg', 'ic-motors.svg']
         self._on_icon = ['bg-green.svg', 'ic-motors.svg']
+        self._stale_icon = ['bg-grey.svg', 'ic-motors.svg', 'ol-stale.svg']
 
-        icons = [self._off_icon, self._on_icon]
+        icons = [self._off_icon, self._on_icon, self._stale_icon]
         super(MotorWidget, self).__init__(topic, icons=icons)
         self.setFixedSize(QSize(40,40))
 
-        #TODO: This is bad the state should be checked not set
-        self.update_state(1)
+        self.update_state(2)
 
         self.clicked.connect(self.toggle)
 
     def update_state(self, state):
-        super(MotorWidget, self).update_state(state)
-
-        self._pub.publish(MotorPower(state))
+        if state != self.state: 
+            super(MotorWidget, self).update_state(state)
+            if state != 2:
+                self._pub.publish(MotorPower(state))
 
     def toggle(self):
         if self.state == 1:
