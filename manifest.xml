@@ -10,6 +10,7 @@
   <url>http://ros.org/wiki/turtlebot2_dashboard</url>
   <depend package="rospy"/>
   <depend package="rqt_robot_dashboard"/>
+  <depend package="kobuki_msgs"/>
 
   <export>
     <rqt_gui plugin="${prefix}/plugin.xml" />
