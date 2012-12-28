@@ -55,3 +55,7 @@ class TurtlebotDashboard(Dashboard):
         self._laptop_bat.update_perc(float(msg.percentage))
         self._laptop_bat.update_time(float(msg.percentage))
         self._laptop_bat.set_charging(bool(msg.charge_state))
+
+    def shutdown_dashboard(self):
+        self._laptop_bat_sub.unregister()
+        self._dashboard_agg_sub.unregister()
