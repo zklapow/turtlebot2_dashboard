@@ -18,7 +18,7 @@ class TurtlebotDashboard(Dashboard):
 
         self._dashboard_message = None
         self._last_dashboard_message_time = 0.0
-        
+
         self._motor_widget = MotorWidget('/mobile_base/commands/motor_power')
         self._laptop_bat = BatteryDashWidget("Laptop")
         self._kobuki_bat = BatteryDashWidget("Kobuki")
@@ -29,7 +29,7 @@ class TurtlebotDashboard(Dashboard):
     def get_widgets(self):
         leds = [LedWidget('/mobile_base/commands/led1'), LedWidget('/mobile_base/commands/led2')]
 
-        return [[MonitorDashWidget(self.context), ConsoleDashWidget(self.context), self._motor_widget], leds, [self._laptop_bat, self._kobuki_bat]]
+        return [[MonitorDashWidget(self.context), ConsoleDashWidget(self.context), self._motor_widget], leds, [self._laptop_bat, self._kobuki_bat], [NavViewDashWidget(self.context)]]
 
     def dashboard_callback(self, msg):
         self._dashboard_message = msg
